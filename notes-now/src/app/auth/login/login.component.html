@@ -1,12 +1,12 @@
 <main>
     <h1>Inicia Sesion</h1>
-    <div>
-        <input type="email" placeholder="email"><br>
-        <input type="password" placeholder="password"><br>
-        <button>Entrar</button><br>
-        <button>Iniciar sesión con Google</button><br>
+    <form [formGroup]="registerForm" (ngSubmit)="onLogin()">
+        <input type="email" placeholder="Correo electrónico" formControlName="email"><br>
+        <input type="password" placeholder="contraseña" formControlName="password"><br>
+        <button type="submit">Entrar</button><br>
+        <button (click)="loginWithGoogle()">Iniciar sesión con Google</button><br>
         <span>No tienes cuenta?<a routerLink="/registro">Registrate</a></span>
-    </div>
+    </form>
 </main>
 
 

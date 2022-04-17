@@ -8,7 +8,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { environment } from 'src/environments/environment';
 
-import { AngularFireModule } from '@angular/fire/compat'; //Para enlazar con el proyecto en firebase
+import { AngularFireModule } from '@angular/fire/compat'; //Para la conexion con fb
+import { ReactiveFormsModule } from '@angular/forms'; //Para hacer formularios reactivos
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'; //Para trabajar con la autenticaciones
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { AngularFireModule } from '@angular/fire/compat'; //Para enlazar con el 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase), //Aqui inicializamos firebase
     ],
   providers: [],
