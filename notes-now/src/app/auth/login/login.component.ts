@@ -27,6 +27,7 @@ public password: string = '';
     console.log('iniciaste sesión')
     const {email, password} = this.registerForm.value;
     this.authService.login(email, password);
+    this.router.navigate(['/inicio'])
   }
   
     /****** Inicio de sesion con Google *****/

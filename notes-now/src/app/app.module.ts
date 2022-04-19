@@ -10,7 +10,13 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat'; //Para la conexion con fb
 import { ReactiveFormsModule } from '@angular/forms'; //Para hacer formularios reactivos
-import { AngularFireAuthModule } from '@angular/fire/compat/auth'; //Para trabajar con la autenticaciones
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { HomeComponent } from './component/home/home.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { HeaderComponent } from './component/header/header.component';
+import { MyNotesComponent } from './component/my-notes/my-notes.component';
+import { ArchivedNotesComponent } from './component/archived-notes/archived-notes.component';
+import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component'; //Para trabajar con la autenticaciones
 
 
 @NgModule({
@@ -18,7 +24,13 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'; //Para trabaj
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
+    NavbarComponent,
+    HeaderComponent,
+    MyNotesComponent,
+    ArchivedNotesComponent,
+    NotesRemovedComponent
   ],
   imports: [
     BrowserModule,
