@@ -1,4 +1,32 @@
-img{
-width: 30px;
-height: 30px;
+* {
+    margin: 0;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.navbar {
+    //margin-top: -63px;
+    background: #F3E9DF;
+    width: 7%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    /* padding: 25px; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu {
+    padding: 10px 20px;
 }

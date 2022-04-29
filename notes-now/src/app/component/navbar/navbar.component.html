@@ -1,35 +1,15 @@
-<section>
+<main class="navbar">
     <div>
-        <ul>
-            <li>
-                <a routerLink="/inicio">
-                    <img src="../../../assets/img/hogar.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a routerLink="/notas">
-                    <img src="../../../assets/img/notas.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a routerLink="/archivadas">
-                    <img src="../../../assets/img/abierto.png" alt="">
-                </a>
-            </li>
-            <li>
-                <a routerLink="/eliminadas">
-                    <img src="../../../assets/img/papelera-de-reciclaje.png" alt="">
-                </a>
-            </li>
-        </ul>
+        <li class="menu">
+            <img src="../../../assets/img/hogar.png" alt="" routerLink="/inicio">
+            <img src="../../../assets/img/notas.png" alt="" routerLink="/notas">
+            <img src="../../../assets/img/abierto.png" alt="" routerLink="/archivadas">
+            <img src="../../../assets/img/papelera-de-reciclaje.png" alt="" routerLink="/eliminadas">
+        </li>
     </div>
     <div>
-        <ul>
-            <li>
-                <a routerLink="/">
-                    <img src="../../../assets/img/cerrar-sesion.png" alt="">
-                </a>
-            </li>
-        </ul>
+        <li>
+            <img src="../../../assets/img/cerrar-sesion.png" alt="" (click)="logoutUser()">
+        </li>
     </div>
-</section>
+</main>

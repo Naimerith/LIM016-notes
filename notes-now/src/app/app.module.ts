@@ -16,7 +16,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { HeaderComponent } from './component/header/header.component';
 import { MyNotesComponent } from './component/my-notes/my-notes.component';
 import { ArchivedNotesComponent } from './component/archived-notes/archived-notes.component';
-import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component'; //Para trabajar con la autenticaciones
+import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { NotesRemovedComponent } from './component/notes-removed/notes-removed.c
     HeaderComponent,
     MyNotesComponent,
     ArchivedNotesComponent,
-    NotesRemovedComponent
+    NotesRemovedComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,7 @@ import { NotesRemovedComponent } from './component/notes-removed/notes-removed.c
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase), //Aqui inicializamos firebase
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

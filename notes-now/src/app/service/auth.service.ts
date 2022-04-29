@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Injectable({
@@ -9,7 +9,8 @@ import firebase from 'firebase/compat/app';
 })
 export class AuthService {
 
-  constructor(private authfb: AngularFireAuth) { }
+  constructor(private authfb: AngularFireAuth, private firestore: AngularFirestore) { }
+
 
   /****** Registro de Usuario *****/
   async register(email: string, password: string) {
@@ -21,15 +22,15 @@ export class AuthService {
     }
   }
 
-   /****** Inicio de sesion con correo eletronico *****/
-   async login(email: string, password: string) {
+  /****** Inicio de sesion con correo eletronico *****/
+  async login(email: string, password: string) {
     try {
       return await this.authfb.signInWithEmailAndPassword(email, password)
     } catch (err) {
       console.log('error en login', err)
       return null;
     }
-   }
+  }
 
   /****** Inicio de sesion con Google *****/
   async loginGoogle(email: string, password: string) {
@@ -41,8 +42,14 @@ export class AuthService {
     }
   }
 
-    /****** Cerrar sesión *****/
-  async logout(){
+  colletionUser(user: any) {
+    return this.firestore.collection('usuarios').add(user);
+  }
+
+  /****** Cerrar sesión *****/
+  async logout() {
     await this.authfb.signOut();
   }
+
+
 }

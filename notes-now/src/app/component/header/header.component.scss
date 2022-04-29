@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin: 10px 10px 1px 120px;
+    justify-content: space-between;
+    border-bottom: 2px solid #d3c4c4;
+}
+
+.logo {
+    width: 9rem;
+    height: 3.5rem;
+}
+
+.search {
+    width: 30rem;
+    height: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+.user{
+    padding: 10px;
+}

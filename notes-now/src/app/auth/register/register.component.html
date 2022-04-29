@@ -1,12 +1,33 @@
-<main>
+<main class="main">
+    <div class="container">
+        <img class="logo" src="../../../assets/img/logo principal.png" alt="">
+        <section class="login">
+            <h1>Registro</h1>
+            <form [formGroup]="registerForm">
+                <input class="input" type="text" placeholder="Nombre y Apellido" formControlName="name"><br>
+                <input class="input" type="email" placeholder="Correo electrónico" formControlName="email"><br>
+                <input class="input" type="password" placeholder="Contraseña" formControlName="password"><br>
+                <input class="input" type="password" placeholder="Confirmar contraseña"
+                    formControlName="confpassword"><br>
+
+                <button type="submit" (click)="onRegister()">Registrarse</button><br>
+                <span class="text-span"> Ya tienes cuenta? <a class="enlace" routerLink="/"> Inicia sesión</a></span>
+            </form>
+        </section>
+    </div>
+</main>
+
+
+
+<!-- <main>
     <h1>Registro</h1>
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-        <!-- <input type="text" placeholder="Nombre y Apellido" ><br> -->
+        <input type="text" placeholder="Nombre y Apellido" ><br> 
         <input type="email" placeholder="Correo electrónico" formControlName="email"><br>
         <input type="password" placeholder="contraseña" formControlName="password"><br>
-        <!-- <input type="password" placeholder="confirmar contraseña"><br> -->
+        <input type="password" placeholder="confirmar contraseña"><br> 
 
         <button type="submit">Registrarse</button><br>
         <span>Ya tienes cuenta?<a routerLink="/">Inicia sesión</a></span>
     </form>
-</main>
+</main> -->
