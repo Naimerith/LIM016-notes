@@ -40,8 +40,8 @@ export class RegisterComponent implements OnInit {
       console.log('Registrado con éxito');
       const id = result.user?.uid //obtener el id del usuario registrado en el auth
       //console.log('aqui esta el id', id);
-      const path = 'Usuarios';
-      await this.firestore.createDoc(this.registerForm.value, path, id).catch(error => {
+      const nameCollection = 'Usuarios';
+      await this.firestore.createDoc(this.registerForm.value, nameCollection, id).catch(error => {
         console.log('Hay un error en la creación de la coleccion Usuario', error)
       })
       this.router.navigate(['/'])

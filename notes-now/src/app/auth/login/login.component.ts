@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
       console.log('iniciaste sesion con google', res);
       const id = res.user?.uid //obtener el id del usuario registrado en el auth
       //console.log('aqui esta el id', id);
-      const path = 'Usuarios';
-      await this.firestore.createDoc(this.datosLogin, path, id)
+      const nameCollection = 'Usuarios';
+      await this.firestore.createDoc(this.datosLogin, nameCollection, id)
         .catch(error => {
           console.log('Hay un error en la creación de la coleccion Usuario', error)
         })

@@ -9,8 +9,8 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) { }
 
   /**** Crear Documento en una colección****/
-  createDoc(data: any, path: string, id: any) {
-    const colletion = this.firestore.collection(path);
-    return colletion.doc(id).set(data);
+  createDoc(data: any, name: string, id: any) {
+    const colletion = this.firestore.collection(name); //se crea la coleccion 
+    return colletion.doc(id).set(data); //Se agregan los datos a la coleccion creada 
   }
 }

@@ -1,0 +1,11 @@
+<div class="containerNote">
+    <div class="containerIntern">
+        <button (click)="openModal()" class="openModal">+</button>
+        <p class="textNote">Agregar una nota</p>
+    </div>
+</div>
+
+<!-- Abre el modal cuando cambia a true -->
+<div *ngIf="modalSwitch == true">
+    <app-modal></app-modal>
+</div>
