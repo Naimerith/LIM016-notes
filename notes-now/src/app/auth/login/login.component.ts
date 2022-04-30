@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import { FirestoreService } from 'src/app/service/firestore.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,13 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   })
 
-  constructor(private authService: AuthService, private router: Router) { }
-  public email: string = '';
-  public password: string = '';
+  datosLogin: any = {
+    email: '',
+    displayname: '',
+    photoPerfil: ''
+  }
+
+  constructor(private authService: AuthService, private router: Router, private firestore: FirestoreService) { }
 
 
   ngOnInit(): void {
@@ -35,14 +40,26 @@ export class LoginComponent implements OnInit {
 
   /****** Inicio de sesion con Google *****/
   async loginWithGoogle() {
-    console.log('funciona el boton')
-    try {
-      const res = this.authService.loginGoogle(this.email, this.password);
-      if (res) {
-        console.log('iniciaste sesion con google', res)
-      }
+    console.log('funciona el boton de google');
+    const { email, password } = this.registerForm.value;
+    const res = await this.authService.loginGoogle(email, password);
+    console.log(res)
+    if (res) {
+      this.datosLogin.displayname = res.user?.displayName;
+      this.datosLogin.email = res.user?.email;
+      this.datosLogin.photoPerfil = res.user?.photoURL;
+      console.log('iniciaste sesion con google', res);
+      const id = res.user?.uid //obtener el id del usuario registrado en el auth
+      //console.log('aqui esta el id', id);
+      const path = 'Usuarios';
+      await this.firestore.createDoc(this.datosLogin, path, id)
+        .catch(error => {
+          console.log('Hay un error en la creación de la coleccion Usuario', error)
+        })
       this.router.navigate(['/inicio'])
     }
-    catch (error) { console.log(error) }
   }
+
+
+
 }

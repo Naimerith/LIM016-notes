@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirestoreService } from 'src/app/service/firestore.service';
 
 @Component({
@@ -11,11 +11,13 @@ import { FirestoreService } from 'src/app/service/firestore.service';
 })
 export class RegisterComponent implements OnInit {
 
+  emailPattern: any = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
   registerForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confpassword: new FormControl('')
+    name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    email: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    confpassword: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)])
   })
 
 
@@ -25,6 +27,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  resetForm() {
+    this.registerForm.reset();
+  }
   async onRegister() {
     console.log('form....', this.registerForm.value)
     const { email, password } = this.registerForm.value;
@@ -40,6 +45,7 @@ export class RegisterComponent implements OnInit {
         console.log('Hay un error en la creación de la coleccion Usuario', error)
       })
       this.router.navigate(['/'])
+      this.resetForm();
     }
   }
 
