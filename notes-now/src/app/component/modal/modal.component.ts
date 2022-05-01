@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Interface } from 'src/app/interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 
@@ -29,7 +30,17 @@ export class ModalComponent implements OnInit {
 
   async AddNote() {
     console.log(this.formNote);
-
+    const NOTENOW: Interface = {
+      title: this.formNote.value.title,
+      contentNote: this.formNote.value.contentNote,
+      date: new Date()
+    }
+    console.log(NOTENOW);
+    this.firestore.AddNoteFb(NOTENOW)
+      .then(() => {
+        console.log('Se agrego la nota a firebase')
+      })
+      .catch((error) => console.log('hay un error', error))
   }
 
 
