@@ -1,16 +1,16 @@
-<form #formNote="ngForm" (ng-submit)="saveNote()">
+<form [formGroup]="formNote" (ngSubmit)="AddNote()">
     <div class="modalContainer">
         <div class="headerContainer">
-            <input class="title" type="text" placeholder="Titulo">
+            <input class="title" type="text" placeholder="Titulo" formControlName="title">
             <button (click)="closeModal()" class="closeModal">X</button>
         </div>
         <textarea class="contentNote" name="contentNote" id="" cols="80" rows="10" autofocus
-            placeholder="Agrega tus anotaciones..."></textarea>
+            placeholder="Agrega tus anotaciones..." formControlName="contentNote"></textarea>
         <div class="containerFooter">
             <img class="paletteColors" src="../../../assets/img/paleta-de-color.png" alt="">
             <img class="delete" src="../../../assets/img/papelera-de-reciclaje.png" alt="">
             <p>fecha</p>
-            <button class="saveNote">Guardar</button>
+            <button type="submit" class="saveNote">Guardar</button>
         </div>
     </div>
 </form>
