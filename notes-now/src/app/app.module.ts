@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat'; //Para la conexion con fb
-import { ReactiveFormsModule } from '@angular/forms'; //Para hacer formularios reactivos
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; //Para hacer formularios reactivos
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -19,7 +19,7 @@ import { ArchivedNotesComponent } from './component/archived-notes/archived-note
 import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component';
 import { AddNotesComponent } from './component/add-notes/add-notes.component';
 import { ModalComponent } from './component/modal/modal.component';
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

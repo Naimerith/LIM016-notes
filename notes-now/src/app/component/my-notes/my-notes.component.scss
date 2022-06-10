@@ -1,0 +1,69 @@
+.containerNotes {
+    //background-color: aqua;
+    border: 1px solid #000000;
+    position: absolute;
+    margin: -30% 0 0 10%;
+    box-shadow: 15px -15px 4px #C4C4C4;
+    width: 18%;
+    height: 48%;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.headerNote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnModalNotes {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+h1,
+p {
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+
+.containerFooter {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.containerTextNotes {
+    overflow-y: auto;
+    height: 50%;
+    //background-color: rgb(255, 0, 140);
+    margin: 10px;
+    word-break: break-all;
+}
+
+.containerTextNotes::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.containerTextNotes::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+
+.containerTextNotes::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    //border: 2px solid #f1f2f3;
+}
+
+.containerTextNotes::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.contentText {
+    padding: 5px;
+}

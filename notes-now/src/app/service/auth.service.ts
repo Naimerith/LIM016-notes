@@ -42,9 +42,10 @@ export class AuthService {
     }
   }
 
-  colletionUser(user: any) {
-    return this.firestore.collection('usuarios').add(user);
-  }
+  // /****** Crear coleccion de Usuarios *****/
+  // colletionUser(user: any) {
+  //   return this.firestore.collection('usuarios').add(user);
+  // }
 
   /****** Cerrar sesión *****/
   async logout() {

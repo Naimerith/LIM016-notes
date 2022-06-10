@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Interface } from 'src/app/interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +13,7 @@ import { ObservablesService } from 'src/app/service/observables.service';
 export class ModalComponent implements OnInit {
   formNote: FormGroup;
 
-  constructor(private serviceModal: ObservablesService, private fb: FormBuilder, private firestore: FirestoreService) {
+  constructor(private serviceModal: ObservablesService, private fb: FormBuilder, private firestore: FirestoreService, private router: Router) {
     this.formNote = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(30)]],
       contentNote: ['', [Validators.required, Validators.maxLength(3000)]],
@@ -30,19 +30,18 @@ export class ModalComponent implements OnInit {
 
   async AddNote() {
     console.log(this.formNote);
-    const NOTENOW: Interface = {
+    const notenow: Interface = {
       title: this.formNote.value.title,
       contentNote: this.formNote.value.contentNote,
       date: new Date()
     }
-    console.log(NOTENOW);
-    this.firestore.AddNoteFb(NOTENOW)
+    // console.log(notenow);
+    this.firestore.AddNoteFb(notenow)
       .then(() => {
         console.log('Se agrego la nota a firebase')
+        this.router.navigate(['/notas'])
       })
       .catch((error) => console.log('hay un error', error))
   }
-
-
 
 }
