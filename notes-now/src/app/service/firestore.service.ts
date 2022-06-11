@@ -18,4 +18,8 @@ export class FirestoreService {
   AddNoteFb(note: Interface): Promise<any> {
     return this.firestore.collection('NotesNew').add(note)
   }
+
+  getNotes() {
+    return this.firestore.collection('NotesNew').valueChanges();
+  }
 }

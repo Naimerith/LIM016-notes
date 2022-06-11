@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Interface } from '../../interface/interface';
+import { FirestoreService } from 'src/app/service/firestore.service';
 
 @Component({
   selector: 'app-my-notes',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyNotesComponent implements OnInit {
 
-  constructor() { }
+  public interface: Interface[] = []
+
+  constructor(private firestore: FirestoreService) { }
 
   ngOnInit(): void {
+    this.firestore.getNotes().subscribe(
+      (notes: any) => {
+        this.interface = notes;
+        console.log(notes)
+      }
+    );
   }
 
 }
