@@ -7,7 +7,20 @@
                 <h1 class="titleNote">{{note.title}}</h1>
                 <p>{{note.date}}</p>
             </header>
-            <button class="btnModalNotes"><img class="icon" title="menu" src="../../../assets/img/menu.png"></button>
+            <button class="btnModalNotes" (click)="openMenu()">
+                <img class="icon" title="menu" src="../../../assets/img/menu.png">
+            </button>
+            <!-- Abre el menu cuando cambia a true -->
+            <div class="menuNote" *ngIf="modalMenu == true">
+                <button class="closeMenu" (click)="closeMenu()" title="cerrar">X</button>
+                <div class="listMenu">
+                    <a href="">Editar Nota</a> <br>
+                    <a href="">Agregar Etiqueta</a> <br>
+                    <a href="">Crear copia</a> <br>
+                    <a href="">Eliminar Nota</a> <br>
+                    <a href="">Archivar Nota</a>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="containerTextNotes">

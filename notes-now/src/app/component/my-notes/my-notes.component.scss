@@ -100,3 +100,34 @@ p {
 .contentText {
     padding: 5px;
 }
+
+// Estilos para el menu de las notas 
+.menuNote {
+    width: 13%;
+    margin: 80px 0 0 250px;
+    background-color: #C4C4C4;
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 5px 3px;
+}
+
+.closeMenu {
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 10px;
+    font-weight: 400;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Rufina';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+}
