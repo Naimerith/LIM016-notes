@@ -1,11 +1,34 @@
-.containerNotes {
-    //background-color: aqua;
-    border: 1px solid #000000;
+.allNotes {
+    display: flex;
     position: absolute;
-    margin: -30% 0 0 10%;
-    box-shadow: 15px -15px 4px #C4C4C4;
-    width: 18%;
-    height: 48%;
+    margin: -35% 0 0 10%;
+    width: 90vw;
+    height: 70%;
+    //background-color: aqua;
+    overflow-y: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.titleNote {
+    font-family: 'Rufina';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 20px;
+    color: #424E5A;
+}
+
+//Solo la primera letra en mayuscula 
+.titleNote:first-letter {
+    text-transform: uppercase;
+}
+
+.containerNotes {
+    margin: 15px 10px;
+    border: 1px solid #000000;
+    box-shadow: 10px -10px 4px #C4C4C4;
+    width: 25%;
+    height: 60%;
 }
 
 .icon {
@@ -46,20 +69,30 @@ p {
     word-break: break-all; //ajustar texto dentro del div
 }
 
+// toda la barra de desplazamiento.
+.allNotes::-webkit-scrollbar,
 .containerTextNotes::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
+.allNotes::-webkit-scrollbar:horizontal {
+    height: 8px;
+}
+
+.allNotes::-webkit-scrollbar:vertical,
 .containerTextNotes::-webkit-scrollbar:vertical {
     width: 8px;
 }
 
+// el controlador de desplazamiento arrastrable.
+.allNotes::-webkit-scrollbar-thumb,
 .containerTextNotes::-webkit-scrollbar-thumb {
-    background-color: #797979;
+    background-color: #F3E9DF;
     border-radius: 20px;
-    //border: 2px solid #f1f2f3;
 }
 
+// la pista (barra de progreso) de la barra de desplazamiento, donde hay una barra gris encima de una barra blanca.
+.allNotes::-webkit-scrollbar-track,
 .containerTextNotes::-webkit-scrollbar-track {
     border-radius: 10px;
 }

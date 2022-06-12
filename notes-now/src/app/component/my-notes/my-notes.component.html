@@ -1,23 +1,23 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div>
+<div class="allNotes">
     <div class="containerNotes" *ngFor="let note of interface">
         <div class="headerNote">
             <header>
-                <h1>{{note.title}}</h1>
+                <h1 class="titleNote">{{note.title}}</h1>
                 <p>{{note.date}}</p>
             </header>
-            <button class="btnModalNotes"><img class="icon" src="../../../assets/img/menu.png"></button>
+            <button class="btnModalNotes"><img class="icon" title="menu" src="../../../assets/img/menu.png"></button>
         </div>
         <hr>
         <div class="containerTextNotes">
             <p class="contentText">{{note.contentNote}}</p>
         </div>
         <div class="containerFooter">
-            <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar">
-            <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores">
-            <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar">
-            <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Eliminar">
+            <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar" title="Fijar">
+            <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
+            <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
+            <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Eliminar" title="Eliminar">
         </div>
     </div>
 </div>
