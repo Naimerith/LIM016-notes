@@ -1,8 +1,10 @@
 export interface Interface {
-    user?: string,
+    user?: string | null,
     emailUSer?: string,
     id?: string;
+    displayname?: string,
     title: string;
     contentNote: string;
-    date: Date;
+    date: number;
+    status: string;
 }

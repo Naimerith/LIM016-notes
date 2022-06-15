@@ -29,11 +29,17 @@ export class ModalComponent implements OnInit {
   }
 
   async AddNote() {
+    const date = new Date();
+    const newDate = Date.now()
     console.log(this.formNote);
+    const usuarioActivo = localStorage.getItem('usuarioActivo');
     const notenow: Interface = {
       title: this.formNote.value.title,
       contentNote: this.formNote.value.contentNote,
-      date: new Date()
+      date: newDate,
+      status: 'Nota nueva',
+      user: usuarioActivo,
+      id: '',
     }
     // console.log(notenow);
     this.firestore.AddNoteFb(notenow)

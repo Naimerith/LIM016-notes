@@ -5,7 +5,7 @@
         <div class="headerNote">
             <header>
                 <h1 class="titleNote">{{note.title}}</h1>
-                <p>{{note.date}}</p>
+                <p>publicada el: {{note.date | date: 'short'}}</p>
             </header>
             <button class="btnModalNotes" (click)="openMenu()">
                 <img class="icon" title="menu" src="../../../assets/img/menu.png">
@@ -14,11 +14,26 @@
             <div class="menuNote" *ngIf="modalMenu == true">
                 <button class="closeMenu" (click)="closeMenu()" title="cerrar">X</button>
                 <div class="listMenu">
-                    <a href="">Editar Nota</a> <br>
-                    <a href="">Agregar Etiqueta</a> <br>
-                    <a href="">Crear copia</a> <br>
-                    <a href="">Eliminar Nota</a> <br>
-                    <a href="">Archivar Nota</a>
+                    <a href="">
+                        <fa-icon [icon]="faPencil"></fa-icon>
+                        Editar Nota
+                    </a><br>
+                    <a href="">
+                        <fa-icon [icon]="faTag"></fa-icon>
+                        Agregar Etiqueta
+                    </a> <br>
+                    <a href="">
+                        <fa-icon [icon]="faImage"></fa-icon>
+                        Agregar Imagen
+                    </a> <br>
+                    <a href="">
+                        <fa-icon [icon]="faRemove"></fa-icon>
+                        Eliminar Nota
+                    </a> <br>
+                    <a href="">
+                        <fa-icon [icon]="faFile"></fa-icon>
+                        Archivar Nota
+                    </a>
                 </div>
             </div>
         </div>

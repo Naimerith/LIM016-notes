@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -42,14 +43,15 @@ export class AuthService {
     }
   }
 
-  // /****** Crear coleccion de Usuarios *****/
-  // colletionUser(user: any) {
-  //   return this.firestore.collection('usuarios').add(user);
-  // }
+  /******Obtener Usuario Logueado *****/
+  getUserLogged() {
+    return this.authfb.authState;
+  }
 
   /****** Cerrar sesión *****/
   async logout() {
     await this.authfb.signOut();
+    localStorage.removeItem("usuarioActivo");
   }
 
 

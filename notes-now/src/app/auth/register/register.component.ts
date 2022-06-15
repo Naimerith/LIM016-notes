@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   emailPattern: any = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
   registerForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    displayname: new FormControl('', [Validators.required, Validators.minLength(5)]),
     email: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
     password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(12)]),
     confpassword: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(12)])

@@ -25,16 +25,18 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
   /****** Inicio de sesion con correo electronico *****/
-  onLogin() {
+  async onLogin() {
     console.log('iniciaste sesión', this.registerForm.value);
     const { email, password } = this.registerForm.value;
-    const res = this.authService.login(email, password);
+    const res = await this.authService.login(email, password);
     if (res) {
       console.log("resultado", res)
     }
+
     this.router.navigate(['/inicio'])
   }
 
@@ -56,10 +58,20 @@ export class LoginComponent implements OnInit {
         .catch(error => {
           console.log('Hay un error en la creación de la coleccion Usuario', error)
         })
+      localStorage.setItem('usuarioActivo', this.datosLogin.displayname)
       this.router.navigate(['/inicio'])
     }
   }
 
+  ///OJO NO FUNCIONA 
+  UserLogged() {
+    this.authService.getUserLogged().subscribe(res => {
+      const activo = res?.email;
+      console.log(activo)
+    })
+    //Guardamos en el localStorage el usuario activo
+    localStorage.setItem('usuarioActivo', this.datosLogin.email)
+  }
 
 
 }

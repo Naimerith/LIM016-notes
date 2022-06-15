@@ -8,6 +8,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { environment } from 'src/environments/environment';
 
+//import { GoogleMapsModule } from '@angular/google-maps';
+//import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
 import { AngularFireModule } from '@angular/fire/compat'; //Para la conexion con fb
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'; //Para hacer formularios reactivos
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -20,6 +23,10 @@ import { NotesRemovedComponent } from './component/notes-removed/notes-removed.c
 import { AddNotesComponent } from './component/add-notes/add-notes.component';
 import { ModalComponent } from './component/modal/modal.component';
 //import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GoogleMapsComponent } from './component/google-maps/google-maps.component';
+
+
 
 
 @NgModule({
@@ -36,6 +43,7 @@ import { ModalComponent } from './component/modal/modal.component';
     NotesRemovedComponent,
     AddNotesComponent,
     ModalComponent,
+    GoogleMapsComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,10 @@ import { ModalComponent } from './component/modal/modal.component';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase), //Aqui inicializamos firebase
+    FontAwesomeModule,
+    // GoogleMapsModule,
+    // HttpClientModule,
+    // HttpClientJsonpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

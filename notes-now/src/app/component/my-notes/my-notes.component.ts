@@ -3,12 +3,22 @@ import { Interface } from '../../interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 
+import { faPencil, faTag, faImage, faRemove, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+
+
 @Component({
   selector: 'app-my-notes',
   templateUrl: './my-notes.component.html',
   styleUrls: ['./my-notes.component.scss']
 })
 export class MyNotesComponent implements OnInit {
+
+  //Iconos de Fontawesome
+  faPencil = faPencil;
+  faTag = faTag;
+  faImage = faImage;
+  faRemove = faRemove;
+  faFile = faFileArrowDown;
 
   public interface: Interface[] = []
   modalMenu: boolean = false;
