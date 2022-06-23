@@ -34,7 +34,7 @@
 .icon {
     width: 30px;
     height: 30px;
-    cursor: pointer;
+    pointer-events: none
 }
 
 .headerNote {
@@ -44,7 +44,8 @@
 }
 
 .btnModalNotes,
-.btnDelete {
+.btnDelete,
+.btnArchive {
     border: none;
     cursor: pointer;
     background-color: transparent;

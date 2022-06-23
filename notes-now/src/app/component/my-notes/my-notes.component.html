@@ -44,10 +44,11 @@
         <div class="containerFooter">
             <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar" title="Fijar">
             <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
-            <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
-            <button data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">Archivar</button>
-            <button class="btnDelete" data-id={{note.id}} data-value={{note.status}}
-                (click)="btnDelete($event)">Eliminar
+            <button class="btnArchive" data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">
+                <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
+            </button>
+            <button class="btnDelete" data-id={{note.id}} data-value={{note.status}} (click)="btnDelete($event)">
+                <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Archivar" title="Archivar">
             </button>
 
         </div>

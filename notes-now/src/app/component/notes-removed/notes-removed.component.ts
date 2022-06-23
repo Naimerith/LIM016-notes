@@ -67,18 +67,18 @@ export class NotesRemovedComponent implements OnInit {
     )
   }
 
-  /* Filtrar por notas nuevas */
+  /* Filtrar por notas eliminadas */
   filterNotesNow() {
     return this.interface = this.interface.filter(notes => notes.status === 'Nota eliminada');
   }
 
 
 
-  btnArchive(e: any) {
+  btnRestaure(e: any) {
     //console.log('diste click a Archivar');
     const archiveId = e.target.id;
     console.log(archiveId);
-    this.firestore.statusNotes(archiveId, 'Nota archivada');
+    this.firestore.statusNotes(archiveId, 'Nota nueva');
     //this.statusPedido(orderId);
     //this.getOrderFilter();
     //this.getIdItemsServed()

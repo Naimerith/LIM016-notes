@@ -44,9 +44,11 @@
         <div class="containerFooter">
             <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar" title="Fijar">
             <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
-            <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
-            <button data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">Restaurar</button>
-            <button class="btnDelete" (click)="btnDelete(note.id)">Eliminar
+            <button class="btnRestaure" data-id={{note.id}} data-value={{note.status}} (click)="btnRestaure($event)">
+                <img class="icon" src="../../../assets/img/actualizar.png" alt="Archivar" title="Archivar">
+            </button>
+            <button class="btnDelete" (click)="btnDelete(note.id)">
+                <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Archivar" title="Archivar">
             </button>
 
         </div>

@@ -19,6 +19,7 @@ export class MyNotesComponent implements OnInit {
   faImage = faImage;
   faRemove = faTrash;
   faFile = faFileArrowDown;
+  filterNotes = '';
 
   public interface: Interface[] = []
   modalMenu: boolean = false;

@@ -27,7 +27,7 @@ import { AddNotesComponent } from './component/add-notes/add-notes.component';
 import { ModalComponent } from './component/modal/modal.component';
 //import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { GoogleMapsComponent } from './component/google-maps/google-maps.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 
@@ -46,7 +46,7 @@ import { GoogleMapsComponent } from './component/google-maps/google-maps.compone
     NotesRemovedComponent,
     AddNotesComponent,
     ModalComponent,
-    GoogleMapsComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
