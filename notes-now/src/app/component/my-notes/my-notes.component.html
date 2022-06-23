@@ -7,14 +7,14 @@
                 <h1 class="titleNote">{{note.title}}</h1>
                 <p>publicada el: {{note.date | date: 'short'}}</p>
             </header>
-            <button class="btnModalNotes" (click)="openMenu()">
+            <button class="btnModalNotes" (click)="openMenu($event)">
                 <img class="icon" title="menu" src="../../../assets/img/menu.png">
             </button>
             <!-- Abre el menu cuando cambia a true -->
             <div class="menuNote" *ngIf="modalMenu == true">
                 <button class="closeMenu" (click)="closeMenu()" title="cerrar">X</button>
                 <div class="listMenu">
-                    <a href="">
+                    <a href="#">
                         <fa-icon [icon]="faPencil"></fa-icon>
                         Editar Nota
                     </a><br>
@@ -26,10 +26,10 @@
                         <fa-icon [icon]="faImage"></fa-icon>
                         Agregar Imagen
                     </a> <br>
-                    <a href="">
-                        <fa-icon [icon]="faRemove"></fa-icon>
-                        Eliminar Nota
-                    </a> <br>
+                    <fa-icon class="iconF" [icon]="faRemove"></fa-icon>
+                    <button class="iconDelete" data-id={{note.id}} data-value={{note.status}}
+                        (click)="btnDelete($event)">Eliminar Nota
+                    </button><br>
                     <a href="">
                         <fa-icon [icon]="faFile"></fa-icon>
                         Archivar Nota
@@ -45,7 +45,11 @@
             <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar" title="Fijar">
             <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
             <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
-            <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Eliminar" title="Eliminar">
+            <button data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">Archivar</button>
+            <button class="btnDelete" data-id={{note.id}} data-value={{note.status}}
+                (click)="btnDelete($event)">Eliminar
+            </button>
+
         </div>
     </div>
 </div>

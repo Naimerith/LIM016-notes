@@ -43,7 +43,8 @@
     align-items: center;
 }
 
-.btnModalNotes {
+.btnModalNotes,
+.btnDelete {
     border: none;
     cursor: pointer;
     background-color: transparent;
@@ -112,6 +113,7 @@ p {
     align-items: flex-start;
     justify-content: space-around;
     padding: 5px 3px;
+    border-radius: 5px;
 }
 
 .closeMenu {
@@ -125,9 +127,26 @@ p {
 
 a {
     text-decoration: none;
-    color: #000000;
+    color: #332f2f;
     font-family: 'Rufina';
     font-style: normal;
-    font-weight: 400;
     line-height: 25px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.iconF {
+    color: red;
+    margin-right: 3px;
+}
+
+.iconDelete {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: 'Rufina';
+    font-size: 17px;
+    font-style: normal;
+    line-height: 25px;
+    color: #332f2f;
 }

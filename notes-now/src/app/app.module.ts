@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,9 +56,8 @@ import { GoogleMapsComponent } from './component/google-maps/google-maps.compone
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase), //Aqui inicializamos firebase
     FontAwesomeModule,
-    // GoogleMapsModule,
-    // HttpClientModule,
-    // HttpClientJsonpModule,
+    // BrowserAnimationsModule, // Modulo de animaciones requerido
+    // ToastrModule.forRoot(), //  Agregamos ToastrModule
   ],
   providers: [],
   bootstrap: [AppComponent]

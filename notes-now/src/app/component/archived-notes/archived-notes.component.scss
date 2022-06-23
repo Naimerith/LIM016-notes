@@ -1,0 +1,151 @@
+.allNotes {
+    display: flex;
+    position: absolute;
+    margin: -35% 0 0 10%;
+    width: 90vw;
+    height: 70%;
+    overflow-y: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.titleNote {
+    font-family: 'Rufina';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 20px;
+    color: #424E5A;
+}
+
+//Solo la primera letra en mayuscula 
+.titleNote:first-letter {
+    text-transform: uppercase;
+}
+
+.containerNotes {
+    margin: 15px 10px;
+    border: 1px solid #000000;
+    box-shadow: 10px -10px 4px #C4C4C4;
+    width: 25%;
+    height: 60%;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.headerNote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnModalNotes,
+.btnDelete {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+h1,
+p {
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+
+.containerFooter {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.containerTextNotes {
+    overflow-y: auto;
+    height: 50%;
+    //background-color: rgb(255, 0, 140);
+    margin: 10px;
+    word-break: break-all; //ajustar texto dentro del div
+}
+
+// toda la barra de desplazamiento.
+.allNotes::-webkit-scrollbar,
+.containerTextNotes::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.allNotes::-webkit-scrollbar:horizontal {
+    height: 8px;
+}
+
+.allNotes::-webkit-scrollbar:vertical,
+.containerTextNotes::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+
+// el controlador de desplazamiento arrastrable.
+.allNotes::-webkit-scrollbar-thumb,
+.containerTextNotes::-webkit-scrollbar-thumb {
+    background-color: #F3E9DF;
+    border-radius: 20px;
+}
+
+// la pista (barra de progreso) de la barra de desplazamiento, donde hay una barra gris encima de una barra blanca.
+.allNotes::-webkit-scrollbar-track,
+.containerTextNotes::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.contentText {
+    padding: 5px;
+}
+
+// Estilos para el menu de las notas 
+.menuNote {
+    width: 13%;
+    margin: 80px 0 0 250px;
+    background-color: #C4C4C4;
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 5px 3px;
+    border-radius: 5px;
+}
+
+.closeMenu {
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 10px;
+    font-weight: 400;
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #332f2f;
+    font-family: 'Rufina';
+    font-style: normal;
+    line-height: 25px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.iconF {
+    color: red;
+    margin-right: 3px;
+}
+
+.iconDelete {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: 'Rufina';
+    font-size: 17px;
+    font-style: normal;
+    line-height: 25px;
+    color: #332f2f;
+}

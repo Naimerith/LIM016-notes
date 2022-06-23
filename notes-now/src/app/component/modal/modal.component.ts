@@ -4,6 +4,7 @@ import { Interface } from 'src/app/interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,11 @@ import { Router } from '@angular/router';
 export class ModalComponent implements OnInit {
   formNote: FormGroup;
 
-  constructor(private serviceModal: ObservablesService, private fb: FormBuilder, private firestore: FirestoreService, private router: Router) {
+  constructor(
+    private serviceModal: ObservablesService,
+    private fb: FormBuilder,
+    private firestore: FirestoreService,
+    private router: Router) {
     this.formNote = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(30)]],
       contentNote: ['', [Validators.required, Validators.maxLength(3000)]],
@@ -28,23 +33,28 @@ export class ModalComponent implements OnInit {
     this.serviceModal.$modal.emit(false) //Emitimos el valor false
   }
 
+
+  /**** Agregar notas a la coleccion ****/
   async AddNote() {
-    const date = new Date();
     const newDate = Date.now()
-    console.log(this.formNote);
     const usuarioActivo = localStorage.getItem('usuarioActivo');
     const notenow: Interface = {
       title: this.formNote.value.title,
       contentNote: this.formNote.value.contentNote,
       date: newDate,
       status: 'Nota nueva',
-      user: usuarioActivo,
-      id: '',
+      user: usuarioActivo
     }
-    // console.log(notenow);
     this.firestore.AddNoteFb(notenow)
       .then(() => {
-        console.log('Se agrego la nota a firebase')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'La nota fue agregada',
+          width: 400,
+          showConfirmButton: false,
+          timer: 1000
+        })
         this.router.navigate(['/notas'])
       })
       .catch((error) => console.log('hay un error', error))
