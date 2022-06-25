@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Interface } from 'src/app/interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
@@ -13,12 +13,14 @@ import Swal from 'sweetalert2'
 })
 export class ModalComponent implements OnInit {
   formNote: FormGroup;
+  @Output() newEvent = new EventEmitter<string>();
 
   constructor(
-    private serviceModal: ObservablesService,
+    private obs: ObservablesService,
     private fb: FormBuilder,
     private firestore: FirestoreService,
     private router: Router) {
+
     this.formNote = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(30)]],
       contentNote: ['', [Validators.required, Validators.maxLength(3000)]],
@@ -26,16 +28,17 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   /* Cerrar modal de agregar nota */
   closeModal() {
-    this.serviceModal.$modal.emit(false) //Emitimos el valor false
+    this.obs.$modal.emit(false) //Emitimos el valor false
   }
 
 
   /**** Agregar notas a la coleccion ****/
-  async AddNote() {
+  async AddNote(value: string) {
     const newDate = Date.now()
     const usuarioActivo = localStorage.getItem('usuarioActivo');
     const notenow: Interface = {
@@ -56,6 +59,7 @@ export class ModalComponent implements OnInit {
           timer: 1000
         })
         this.router.navigate(['/notas'])
+        this.newEvent.emit(value);
       })
       .catch((error) => console.log('hay un error', error))
   }

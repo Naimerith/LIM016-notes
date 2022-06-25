@@ -1,82 +1,57 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="allNotes">
-    <div class="containerNotes" *ngFor="let note of interface">
-        <div class="headerNote">
-            <header>
-                <h1 class="titleNote">{{note.title}}</h1>
-                <p>publicada el: {{note.date | date: 'short'}}</p>
-            </header>
-            <!-- <button class="btnModalNotes" (click)="openMenu($event)">
-                <img class="icon" title="menu" src="../../../assets/img/menu.png">
-            </button> -->
-            <!-- Abre el menu cuando cambia a true -->
-            <!-- <div class="menuNote" *ngIf="modalMenu == true">
-                <button class="closeMenu" (click)="closeMenu()" title="cerrar">X</button>
-                <div class="listMenu">
-                    <a href="#">
-                        <fa-icon [icon]="faPencil"></fa-icon>
-                        Editar Nota
-                    </a><br>
-                    <a href="">
-                        <fa-icon [icon]="faTag"></fa-icon>
-                        Agregar Etiqueta
-                    </a> <br>
-                    <a href="">
-                        <fa-icon [icon]="faImage"></fa-icon>
-                        Agregar Imagen
-                    </a> <br>
-                    <fa-icon class="iconF" [icon]="faRemove"></fa-icon>
-                    <button class="iconDelete" data-id={{note.id}} data-value={{note.status}}
-                        (click)="btnDelete($event)">Eliminar Nota
-                    </button><br>
-                    <a href="">
-                        <fa-icon [icon]="faFile"></fa-icon>
-                        Archivar Nota
-                    </a>
-                </div>
-            </div> -->
-        </div>
-        <hr>
-        <div class="containerTextNotes">
-            <p class="contentText">{{note.contentNote}}</p>
-        </div>
-        <div class="containerFooter">
-            <button class="btnEdit" data-bs-toggle="modal" data-bs-target="#modelId" (click)="btnEdit()">
-                <img class="icon" src="../../../assets/img/editar.png" alt="Editar" title="Editar">
-            </button>
-            <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
-            <button class="btnArchive" data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">
-                <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
-            </button>
-            <button class="btnDelete" data-id={{note.id}} data-value={{note.status}} (click)="btnDelete($event)">
-                <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Archivar" title="Archivar">
-            </button>
+<main class="main">
+    <div>
+        <button routerLink="/inicio">Agregar una nota nueva</button>
+    </div>
+    <div class="allNotes">
+        <div class="containerNotes" *ngFor="let note of interface">
+            <div class="headerNote">
+                <header>
+                    <h1 class="titleNote">{{note.title}}</h1>
+                    <p>publicada el: {{note.date | date: 'short'}}</p>
+                </header>
+            </div>
+            <hr>
+            <div class="containerTextNotes">
+                <p class="contentText">{{note.contentNote}}</p>
+            </div>
+            <div class="containerFooter">
+                <button class="btnEdit" data-bs-toggle="modal" data-bs-target="#modelId" (click)="btnEdit(note)">
+                    <img class="icon" src="../../../assets/img/editar.png" alt="Editar" title="Editar">
+                </button>
+                <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
+                <button class="btnArchive" data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">
+                    <img class="icon" src="../../../assets/img/abierto.png" alt="Archivar" title="Archivar">
+                </button>
+                <button class="btnDelete" data-id={{note.id}} data-value={{note.status}} (click)="btnDelete($event)">
+                    <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Archivar"
+                        title="Archivar">
+                </button>
+            </div>
         </div>
     </div>
-</div>
-
-
+</main>
 
 <!-- Modal -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <form [formGroup]="formNoteEdit" class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <input class="title" type="text" formControlName="title">
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <input type="text" formControlName="title">
+                    <textarea class="contentNote" name="contentNote" id="" cols="60" rows="10" autofocus
+                        formControlName="contentNote"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary" (click)="savedNote()">Guardar</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>

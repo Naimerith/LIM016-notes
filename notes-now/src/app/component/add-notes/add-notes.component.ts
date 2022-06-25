@@ -14,7 +14,6 @@ export class AddNotesComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.serviceModal.$modal.subscribe((valor) => { //me suscribo al servicio para observar cuando cambie de valor 
       this.modalSwitch = valor; //el parametro valor tiene el valor actual que tenga modalSwitch 
     })

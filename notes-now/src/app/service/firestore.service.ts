@@ -26,8 +26,8 @@ export class FirestoreService {
   }
 
   /**** Editar notas de la colección****/
-  editNotes(id: string, registro: any): Promise<any> {
-    return this.firestore.collection('NotesNew').doc(id).update(registro)
+  editNotes(id: string, note: any): Promise<any> {
+    return this.firestore.collection('NotesNew').doc(id).update(note)
   }
   /**** Eliminar notas de la colección****/
   deleteNotes(id: string): Promise<any> {
