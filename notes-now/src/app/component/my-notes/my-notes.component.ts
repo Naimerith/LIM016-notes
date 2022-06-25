@@ -75,15 +75,15 @@ export class MyNotesComponent implements OnInit {
 
   };
 
+  /* Archivar  las notas*/
   btnArchive(e: any) {
     //console.log('diste click a Archivar');
     const archiveId = e.target.id;
     console.log(archiveId);
     this.firestore.statusNotes(archiveId, 'Nota archivada');
-    //this.statusPedido(orderId);
-    //this.getOrderFilter();
-    //this.getIdItemsServed()
-    //this.getId();
   };
+  btnEdit() {
+    console.log('diste click en editar')
+  }
 }
 

@@ -72,15 +72,11 @@ export class ArchivedNotesComponent implements OnInit {
 
 
 
-  btnArchive(e: any) {
+  btnRestaure(e: any) {
     //console.log('diste click a Archivar');
     const archiveId = e.target.id;
     console.log(archiveId);
-    this.firestore.statusNotes(archiveId, 'Nota archivada');
-    //this.statusPedido(orderId);
-    //this.getOrderFilter();
-    //this.getIdItemsServed()
-    //this.getId();
+    this.firestore.statusNotes(archiveId, 'Nota nueva');
   };
 
 }

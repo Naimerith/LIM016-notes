@@ -11,9 +11,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { environment } from 'src/environments/environment';
 
-//import { GoogleMapsModule } from '@angular/google-maps';
-//import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-
 import { AngularFireModule } from '@angular/fire/compat'; //Para la conexion con fb
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'; //Para hacer formularios reactivos
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -25,9 +22,8 @@ import { ArchivedNotesComponent } from './component/archived-notes/archived-note
 import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component';
 import { AddNotesComponent } from './component/add-notes/add-notes.component';
 import { ModalComponent } from './component/modal/modal.component';
-//import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SearchPipe } from './pipe/search.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -46,7 +42,6 @@ import { SearchPipe } from './pipe/search.pipe';
     NotesRemovedComponent,
     AddNotesComponent,
     ModalComponent,
-    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +50,7 @@ import { SearchPipe } from './pipe/search.pipe';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase), //Aqui inicializamos firebase
-    FontAwesomeModule,
+    FontAwesomeModule, NgbModule,
     // BrowserAnimationsModule, // Modulo de animaciones requerido
     // ToastrModule.forRoot(), //  Agregamos ToastrModule
   ],

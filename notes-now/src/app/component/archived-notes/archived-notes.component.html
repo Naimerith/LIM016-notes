@@ -7,11 +7,11 @@
                 <h1 class="titleNote">{{note.title}}</h1>
                 <p>publicada el: {{note.date | date: 'short'}}</p>
             </header>
-            <button class="btnModalNotes" (click)="openMenu($event)">
+            <!-- <button class="btnModalNotes" (click)="openMenu($event)">
                 <img class="icon" title="menu" src="../../../assets/img/menu.png">
-            </button>
+            </button> -->
             <!-- Abre el menu cuando cambia a true -->
-            <div class="menuNote" *ngIf="modalMenu == true">
+            <!-- <div class="menuNote" *ngIf="modalMenu == true">
                 <button class="closeMenu" (click)="closeMenu()" title="cerrar">X</button>
                 <div class="listMenu">
                     <a href="#">
@@ -35,7 +35,7 @@
                         Archivar Nota
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <hr>
         <div class="containerTextNotes">
@@ -44,8 +44,8 @@
         <div class="containerFooter">
             <img class="icon" src="../../../assets/img/chinche.png" alt="Fijar" title="Fijar">
             <img class="icon" src="../../../assets/img/paleta-de-color.png" alt="Colores" title="Cambiar color">
-            <button class="btnArchive" data-id={{note.id}} data-value={{note.status}} (click)="btnArchive($event)">
-                <img class="icon" src="../../../assets/img/abierto.png" alt="Colores" title="Cambiar color">
+            <button class="btnRestaure" data-id={{note.id}} data-value={{note.status}} (click)="btnRestaure($event)">
+                <img class="icon" src="../../../assets/img/actualizar.png" alt="Archivar" title="Archivar">
             </button>
             <button class="btnDelete" data-id={{note.id}} data-value={{note.status}} (click)="btnDelete($event)">
                 <img class="icon" src="../../../assets/img/papelera-de-reciclaje.png" alt="Colores"
