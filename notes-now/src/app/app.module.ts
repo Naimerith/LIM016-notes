@@ -21,7 +21,6 @@ import { MyNotesComponent } from './component/my-notes/my-notes.component';
 import { ArchivedNotesComponent } from './component/archived-notes/archived-notes.component';
 import { NotesRemovedComponent } from './component/notes-removed/notes-removed.component';
 import { AddNotesComponent } from './component/add-notes/add-notes.component';
-import { ModalComponent } from './component/modal/modal.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -39,7 +38,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ArchivedNotesComponent,
     NotesRemovedComponent,
     AddNotesComponent,
-    ModalComponent,
   ],
   imports: [
     BrowserModule,

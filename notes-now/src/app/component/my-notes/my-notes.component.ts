@@ -3,7 +3,7 @@ import { Interface } from '../../interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 
-import { faPencil, faTag, faImage, faFileArrowDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -17,11 +17,7 @@ import Swal from 'sweetalert2';
 export class MyNotesComponent implements OnInit {
 
   //Iconos de Fontawesome
-  faPencil = faPencil;
-  faTag = faTag;
-  faImage = faImage;
-  faRemove = faTrash;
-  faFile = faFileArrowDown;
+  faPlus = faPlus;
   filterNotes = '';
 
   public interface: Interface[] = []
@@ -29,7 +25,7 @@ export class MyNotesComponent implements OnInit {
   formNoteEdit: FormGroup;
   id: string | undefined;
 
-  constructor(private firestore: FirestoreService, private obs: ObservablesService, private fb: FormBuilder, private router: Router,) {
+  constructor(private firestore: FirestoreService, private obs: ObservablesService, private fb: FormBuilder, private router: Router) {
     this.formNoteEdit = this.fb.group({
       title: ['', []],
       contentNote: ['', []],
@@ -74,7 +70,17 @@ export class MyNotesComponent implements OnInit {
 
   /* Eliminamos las notas y enviamos a la papelera*/
   btnDelete(e: any) {
-    //console.log('diste click a eliminar');
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La nota fue enviada a la papelera de reciclaje',
+      width: 400,
+      showConfirmButton: false,
+      timer: 1500,
+      color: '#0e0d0d',
+      background: 'rgba(239, 151, 151, 1)',
+      iconColor: '#332f2f'
+    })
     const deleteId = e.target.id;
     console.log(deleteId);
     this.firestore.statusNotes(deleteId, 'Nota eliminada');
@@ -83,7 +89,17 @@ export class MyNotesComponent implements OnInit {
 
   /* Archivar  las notas*/
   btnArchive(e: any) {
-    //console.log('diste click a Archivar');
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La nota fue archivada',
+      width: 400,
+      showConfirmButton: false,
+      timer: 1500,
+      color: '#0e0d0d',
+      background: 'rgba(239, 151, 151, 1)',
+      iconColor: '#332f2f'
+    })
     const archiveId = e.target.id;
     console.log(archiveId);
     this.firestore.statusNotes(archiveId, 'Nota archivada');
@@ -127,7 +143,7 @@ export class MyNotesComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire('Nota Editada!', '', 'success')
         this.firestore.editNotes(id, notenow).then(() => {
-          console.log('Se edito la nota ')
+          //console.log('Se edito la nota ')
           this.formNoteEdit.reset();
           this.id = undefined;
         }, error => {

@@ -1,8 +1,12 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <main class="main">
-    <div>
-        <button routerLink="/inicio">Agregar una nota nueva</button>
+    <div class="headerPage">
+        <h3 class="titlePage"> Mis Notas</h3>
+        <button class="btnaddNote" routerLink="/inicio">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            Agregar una nota nueva
+        </button>
     </div>
     <div class="allNotes">
         <div class="containerNotes" *ngFor="let note of interface">
@@ -38,19 +42,22 @@
     <div class="modal-dialog" role="document">
         <form [formGroup]="formNoteEdit" class="modal-content">
             <div class="modal-header">
-                <input class="title" type="text" formControlName="title">
+                <h5>Editar Nota</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
+                <div class="container-title">
+                    <input class="title" type="text" formControlName="title">
+                </div>
                 <div class="container-fluid">
-                    <textarea class="contentNote" name="contentNote" id="" cols="60" rows="10" autofocus
+                    <textarea class="contentNote" name="contentNote" id="" cols="45" rows="10" autofocus
                         formControlName="contentNote"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="savedNote()">Guardar</button>
+                <button type="button" class="saveNote" (click)="savedNote()">Guardar</button>
             </div>
         </form>
     </div>

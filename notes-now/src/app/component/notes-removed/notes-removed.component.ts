@@ -3,7 +3,7 @@ import { Interface } from '../../interface/interface';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 
-import { faPencil, faTag, faImage, faFileArrowDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -14,21 +14,13 @@ import { faPencil, faTag, faImage, faFileArrowDown, faTrash } from '@fortawesome
 })
 export class NotesRemovedComponent implements OnInit {
   //Iconos de Fontawesome
-  faPencil = faPencil;
-  faTag = faTag;
-  faImage = faImage;
-  faRemove = faTrash;
-  faFile = faFileArrowDown;
+  faPlus = faPlus;
 
   public interface: Interface[] = []
-  modalMenu: boolean = false;
 
   constructor(private firestore: FirestoreService, private serviceModal: ObservablesService) { }
 
   ngOnInit(): void {
-    this.serviceModal.$modal.subscribe((valor) => { //me suscribo al servicio para observar cuando cambie de valor 
-      this.modalMenu = valor; //el parametro valor tiene el valor actual que tenga modalMenu
-    })
 
     this.getAllNotes() //Obtenemos todas las notas en tiempo real 
   }
@@ -47,16 +39,6 @@ export class NotesRemovedComponent implements OnInit {
     })
   }
 
-  /* Abrir menu de cada nota */
-  openMenu(e: any) {
-    this.modalMenu = true;
-    console.log('diste click al menu');
-  }
-
-  /* Cerrar menu de cada nota */
-  closeMenu() {
-    this.serviceModal.$modal.emit(false) //Emitimos el valor false
-  }
 
   /* Eliminamos las nota definitivamente de la colección */
   btnDelete(id: any) {
@@ -75,14 +57,10 @@ export class NotesRemovedComponent implements OnInit {
 
 
   btnRestaure(e: any) {
-    //console.log('diste click a Archivar');
     const archiveId = e.target.id;
     console.log(archiveId);
     this.firestore.statusNotes(archiveId, 'Nota nueva');
-    //this.statusPedido(orderId);
-    //this.getOrderFilter();
-    //this.getIdItemsServed()
-    //this.getId();
+
   };
 }
 

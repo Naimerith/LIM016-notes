@@ -9,8 +9,6 @@ export class ObservablesService {
 
   private note$ = new Subject<any>()
 
-  //Por buenas practicas se coloca ese signo $ a los objetos observables
-  $modal = new EventEmitter<any>();
 
   constructor() { }
 
