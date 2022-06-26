@@ -132,7 +132,7 @@ export class ArchivedNotesComponent implements OnInit {
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: 'Ok',
-      denyButtonText: 'No',
+      denyButtonText: `No`,
       color: '#0e0d0d',
       background: '#F3E9DF',
       iconColor: '#332f2f',
@@ -142,12 +142,13 @@ export class ArchivedNotesComponent implements OnInit {
       if (result.isConfirmed) {
         Swal.fire('Nota Editada!', '', 'success')
         this.firestore.editNotes(id, notenow).then(() => {
-          console.log('Se edito la nota ')
           this.formNoteEdit.reset();
           this.id = undefined;
         }, error => {
-          console.log('No se pudo editar la nota ')
+          console.log(error, 'No se pudo editar la nota ')
         })
+      } else if (result.isDenied) {
+        Swal.fire('La nota no se edito', '', 'info')
       }
     })
   }
