@@ -43,11 +43,32 @@ export class NotesRemovedComponent implements OnInit {
 
   /* Eliminamos las nota definitivamente de la colección */
   btnDelete(id: any) {
+    Swal.fire({
+      title: 'Esta seguro que quiere eliminar esta nota defiitivamente?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Ok',
+      denyButtonText: `No`,
+      color: '#0e0d0d',
+      background: '#F3E9DF',
+      iconColor: '#332f2f',
+      confirmButtonColor: '#0cf058',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Nota Eliminada!', 'Esta nota no podrá recuperarse', 'success')
+        this.firestore.deleteNotes(id).then(() => {
+          console.log('Se elimino la nota correctamente')
+        }, error => { console.log('Se genero un error', error) }
+        )
+      } else if (result.isDenied) {
+        Swal.fire('La nota no se elimino', '', 'info')
+      }
+    })
+
+
     //console.log(id)
-    this.firestore.deleteNotes(id).then(() => {
-      console.log('Se elimino la nota correctamente')
-    }, error => { console.log('Se genero un error', error) }
-    )
+
   }
 
   /* Filtrar por notas eliminadas */
