@@ -60,7 +60,17 @@ export class ArchivedNotesComponent implements OnInit {
 
   /* Eliminamos las notas y enviamos a la papelera*/
   btnDelete(e: any) {
-    //console.log('diste click a eliminar');
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La nota fue enviada a la papelera de reciclaje',
+      width: 400,
+      showConfirmButton: false,
+      timer: 1500,
+      color: '#0e0d0d',
+      background: 'rgba(239, 151, 151, 1)',
+      iconColor: '#332f2f'
+    })
     const deleteId = e.target.id;
     console.log(deleteId);
     this.firestore.statusNotes(deleteId, 'Nota eliminada');
@@ -73,7 +83,17 @@ export class ArchivedNotesComponent implements OnInit {
 
   /* Restauramos las notas y enviamos a la mis notas*/
   btnRestaure(e: any) {
-    //console.log('diste click a Archivar');
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La nota fue restaurada',
+      width: 400,
+      showConfirmButton: false,
+      timer: 1500,
+      color: '#0e0d0d',
+      background: 'rgba(239, 151, 151, 1)',
+      iconColor: '#332f2f'
+    })
     const archiveId = e.target.id;
     console.log(archiveId);
     this.firestore.statusNotes(archiveId, 'Nota nueva');
@@ -111,8 +131,13 @@ export class ArchivedNotesComponent implements OnInit {
       title: 'Esta seguro que quiere editar esta nota?',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      confirmButtonText: 'Ok',
+      denyButtonText: 'No',
+      color: '#0e0d0d',
+      background: '#F3E9DF',
+      iconColor: '#332f2f',
+      confirmButtonColor: '#0cf058',
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Nota Editada!', '', 'success')

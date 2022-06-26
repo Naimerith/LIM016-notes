@@ -4,6 +4,7 @@ import { FirestoreService } from 'src/app/service/firestore.service';
 import { ObservablesService } from 'src/app/service/observables.service';
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 
 
@@ -57,10 +58,20 @@ export class NotesRemovedComponent implements OnInit {
 
 
   btnRestaure(e: any) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'La nota fue restaurada',
+      width: 400,
+      showConfirmButton: false,
+      timer: 1500,
+      color: '#0e0d0d',
+      background: 'rgba(239, 151, 151, 1)',
+      iconColor: '#332f2f'
+    })
     const archiveId = e.target.id;
     console.log(archiveId);
     this.firestore.statusNotes(archiveId, 'Nota nueva');
-
   };
 }
 

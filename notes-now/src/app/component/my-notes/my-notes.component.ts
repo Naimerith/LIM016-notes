@@ -137,17 +137,21 @@ export class MyNotesComponent implements OnInit {
       title: 'Esta seguro que quiere editar esta nota?',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      confirmButtonText: 'Ok',
+      denyButtonText: `No`,
+      color: '#0e0d0d',
+      background: '#F3E9DF',
+      iconColor: '#332f2f',
+      confirmButtonColor: '#0cf058',
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Nota Editada!', '', 'success')
         this.firestore.editNotes(id, notenow).then(() => {
-          //console.log('Se edito la nota ')
           this.formNoteEdit.reset();
           this.id = undefined;
         }, error => {
-          console.log('No se pudo editar la nota ')
+          console.log(error, 'No se pudo editar la nota ')
         })
       } else if (result.isDenied) {
         Swal.fire('La nota no se edito', '', 'info')
