@@ -33,6 +33,7 @@ de notas).
 
 ## 2. Prototipo de alta Fidelidad para escritorio
 
+![PAF](https://user-images.githubusercontent.com/89501132/175837626-049c945f-4ca0-4b58-9e6a-bb6b6a9be312.png)
 
 
 ## 3. Criterios de aceptación mínimos del proyecto
