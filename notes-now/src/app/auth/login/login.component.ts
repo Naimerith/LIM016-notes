@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { FirestoreService } from 'src/app/service/firestore.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,9 +35,17 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.registerForm.value;
     const res = await this.authService.login(email, password);
     if (res) {
-      console.log("resultado", res)
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Has iniciado sesión',
+        showConfirmButton: false,
+        timer: 1500,
+        background: '#F3E9DF',
+        iconColor: '#332f2f',
+      })
+      //console.log("resultado", res)
     }
-
     this.router.navigate(['/inicio'])
   }
 
@@ -47,12 +56,20 @@ export class LoginComponent implements OnInit {
     const res = await this.authService.loginGoogle(email, password);
     console.log(res)
     if (res) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Has iniciado sesión',
+        showConfirmButton: false,
+        timer: 1500,
+        background: '#F3E9DF',
+        iconColor: '#332f2f',
+      })
       this.datosLogin.displayname = res.user?.displayName;
       this.datosLogin.email = res.user?.email;
       this.datosLogin.photoPerfil = res.user?.photoURL;
       console.log('iniciaste sesion con google', res);
       const id = res.user?.uid //obtener el id del usuario registrado en el auth
-      //console.log('aqui esta el id', id);
       const nameCollection = 'Usuarios';
       await this.firestore.createDoc(this.datosLogin, nameCollection, id)
         .catch(error => {

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirestoreService } from 'src/app/service/firestore.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -36,6 +37,15 @@ export class RegisterComponent implements OnInit {
       console.log('error en Registro...', error)
     })
     if (result) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Registrado con éxito',
+        showConfirmButton: false,
+        timer: 1500,
+        background: '#F3E9DF',
+        iconColor: '#332f2f',
+      })
       console.log('Registrado con éxito');
       const id = result.user?.uid //obtener el id del usuario registrado en el auth
       //console.log('aqui esta el id', id);
