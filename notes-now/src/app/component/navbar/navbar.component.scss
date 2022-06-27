@@ -30,3 +30,18 @@ li {
 .menu {
     padding: 10px 20px;
 }
+
+//////// Medidas para TABLET///////
+@media (max-width: 768px) {
+
+    img {
+        width: 25px;
+        height: 25px;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+    .navbar {
+        height: 100vh;
+    }
+}

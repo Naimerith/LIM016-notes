@@ -132,15 +132,7 @@ p {
     padding: 5px;
 }
 
-a {
-    text-decoration: none;
-    color: #332f2f;
-    font-family: 'Rufina';
-    font-style: normal;
-    line-height: 25px;
-    cursor: pointer;
-    margin-left: 2px;
-}
+
 
 .iconF {
     color: #f81010;
@@ -243,4 +235,36 @@ h5 {
     font-style: normal;
     font-weight: bold;
     margin: 0 30%;
+}
+
+//////// Medidas para TABLET///////
+@media (max-width: 768px) {
+    .main {
+        margin: -50% 0 0 8%;
+    }
+
+    .headerPage {
+        margin: -28px 0px 0 0;
+    }
+
+    .titlePage {
+        font-size: 25px;
+    }
+
+    .btnaddNote {
+        height: 20px;
+        font-size: 10px;
+        color: #000000;
+    }
+
+    .containerNotes {
+        width: 35%;
+        height: 70%;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 5px;
+    }
 }

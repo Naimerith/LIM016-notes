@@ -24,6 +24,26 @@
     border: 1px solid #000000;
     box-sizing: border-box;
 }
-.user{
+
+.user {
     padding: 10px;
+}
+
+//////// Medidas para TABLET///////
+@media (max-width: 768px) {
+
+    .header {
+        margin: 0px 0px 1px 60px;
+        width: 80vw;
+    }
+
+    .search {
+        width: 25rem;
+    }
+
+    .user {
+        padding: 0px;
+        font-size: 10px;
+    }
+
 }
