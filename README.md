@@ -94,4 +94,6 @@ Lo que debe ocurrir para que se satisfagan las necesidades del usuario
 * Eliminar notas.
 * Se ve y funciona bien en una _Tablet_
 
+##### Desarrollada por Naimerith 💙
+
 
